@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQGPT SERVICES</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css and Hover.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00bcd4;
+            --secondary-color: #0097a7;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+        }
+        #banner {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            margin-top: 76px; /* Adjust for fixed navbar */
+        }
+
+        .banner-overlay {
+            height: 100%;
+            width: 100%;
+        }
+
+        .banner-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            transition: all 0.3s ease;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+
+        .quick-link-logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .banner-overlay {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .banner-overlay img {
+            transition: transform 0.5s ease;
+        }
+
+        .banner-overlay:hover img {
+            transform: scale(1.05);
+        }
+
+        .banner-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(18, 18, 18, 0.7), rgba(0, 188, 212, 0.3));
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            background: rgba(0, 188, 212, 0.1);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center animate__animated animate__fadeInLeft" href="#">
+                    <img src="QQGPT-LOGO.jpg" alt="SBTET Logo" style="height: 50px;">
+                    <span class="ms-3" style="color: #0097a7;">QQGPT SERVICES</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#courses">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#quick-links">Services</a></li>
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Banner section -->
+    <section id="banner" class="mt-5 pt-5">
+        <div class="container">
+            <div class="banner-overlay rounded-4 overflow-hidden position-relative">
+                <img src="bannerqq.webp" alt="Banner Image" class="img-fluid">
+                <div class="position-absolute top-50 start-50 translate-middle text-center z-1">
+                    <h2 class="lead text-light animate__animated animate__fadeInUp animate__delay-1s" style = "background: #2b383a;">Your Gateway to Professional Excellence</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Courses Section -->
+    <section id="courses" class="py-5">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Academic Programs</h2>
+            <div class="course-list">
+                <div class="course-card animate__animated animate__fadeInUp">
+                    <h5>Diploma in Civil Engineering</h5>
+                    <p class="text-muted">Comprehensive training in infrastructure development</p>
+                    <a href="https://en.wikipedia.org/wiki/Civil_engineering" class="btn btn-custom">Learn More</a>
+                </div>
+                <div class="course-card animate__animated animate__fadeInUp">
+                    <h5>Diploma in Mechanical Engineering</h5>
+                    <p class="text-muted">Mastery of mechanical systems and design</p>
+                    <a href="https://en.wikipedia.org/wiki/Mechanical_engineering" class="btn btn-custom">Learn More</a>
+                </div>
+                <div class="course-card animate__animated animate__fadeInUp">
+                    <h5>Diploma in Electrical Engineering</h5>
+                    <p class="text-muted">Electrical systems and power management</p>
+                    <a href="https://en.wikipedia.org/wiki/Electrical_engineering" class="btn btn-custom">Learn More</a>
+                </div>
+                <div class="course-card animate__animated animate__fadeInUp">
+                    <h5>Diploma in Computer Engineering</h5>
+                    <p class="text-muted">Software and hardware integration</p>
+                    <a href="https://en.wikipedia.org/wiki/Computer_engineering" class="btn btn-custom">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Quick Links Section -->
+    <section id="quick-links" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Student Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4 col-lg-2 animate__animated animate__fadeInLeft">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <img src="result.webp" alt="Results" class="quick-link-logo mb-4">
+                            <h5>Diploma Results</h5>
+                            <a href="https://sbtet.telangana.gov.in/index.html#!/index/DiplomaStudentResult" class="btn btn-custom">View Results</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 animate__animated animate__fadeInLeft">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <img src="attendance.webp" alt="Attendance" class="quick-link-logo mb-4">
+                            <h5>Student Attendance</h5>
+                            <a href="https://sbtet.telangana.gov.in/index.html#!/index/StudentAttendance" class="btn btn-custom">View Attendance</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 animate__animated animate__fadeInLeft">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <img src="result1.webp" alt="Consolidated Results" class="quick-link-logo mb-4">
+                            <h5>Consolidated Results</h5>
+                            <a href="https://sbtet.telangana.gov.in/index.html#!/index/StudentConsolidated" class="btn btn-custom">View Results</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 animate__animated animate__fadeInLeft">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <img src="Fee.webp" alt="Fee Payment" class="quick-link-logo mb-4">
+                            <h5>Exam Fee Payment</h5>
+                            <a href="https://sbtet.telangana.gov.in/index.html#!/index/DiplomaFeePayment" class="btn btn-custom">Pay Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 animate__animated animate__fadeInLeft">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <img src="Exam.webp" alt="Exam Pattern" class="quick-link-logo mb-4">
+                            <h5>Exam Pattern</h5>
+                            <a href="exam-pattern.html" class="btn btn-custom">View Pattern</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 animate__animated animate__fadeInLeft">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <img src="Resources.webp" alt="Resources" class="quick-link-logo mb-4">
+                            <h5>Resources Download</h5>
+                            <a href="Resources.html" class="btn btn-custom">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="contact-card animate__animated animate__fadeInUp">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="hvr-icon-forward">
+                            <i class="fas fa-envelope hvr-icon"></i>
+                            <h5>Email Support</h5>
+                            <p>sbtet-helpdesk@telangana.gov.in</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hvr-icon-forward">
+                            <i class="fas fa-phone hvr-icon"></i>
+                            <h5>Phone Support</h5>
+                            <p>+91 8031404549</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h5><i class="fas fa-clock me-2"></i>Working Hours</h5>
+                    <p>10:30 AM - 5:00 PM (Mon-Sat)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="animate__animated animate__fadeInUp">
+        <div class="container text-center">
+            <div class="social-links mb-4">
+                <a href="https://www.facebook.com/QuliQutubShahPolytechnic/" class="text-white hvr-grow mx-3"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://x.com/qqgpt" class="text-white hvr-grow mx-3"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.instagram.com/qqgpt_official/" class="text-white hvr-grow mx-3"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+            <p>QQGPT HYDERABAD</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate__animated');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.dataset.animate;
+                        entry.target.style.visibility = 'visible';
+                        entry.target.classList.add(animation);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                element.style.visibility = 'hidden';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
