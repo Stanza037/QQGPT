@@ -12,6 +12,93 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        #chatbot-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #chatbot-box {
+            display: none;
+            width: 350px;
+            height: 500px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        #chatbot-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #chatbot-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: var(--dark-bg);
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background: var(--card-bg);
+            color: white;
+            align-self: flex-start;
+        }
+
+        #chatbot-input {
+            display: flex;
+            padding: 10px;
+            background: var(--card-bg);
+        }
+
+        #chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        #chatbot-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
         :root {
             --primary-color: #00bcd4;
             --secondary-color: #0097a7;
@@ -238,6 +325,102 @@
             </div>
         </div>
     </section>
+        <!-- Header and other sections remain the same -->
+
+    <!-- QQGPT AI Chatbot -->
+    <div id="chatbot-container">
+        <button id="chatbot-toggle"><i class="fas fa-robot"></i></button>
+        <div id="chatbot-box">
+            <div id="chatbot-header">QQGPT AI Assistant</div>
+            <div id="chatbot-messages"></div>
+            <div id="chatbot-input">
+                <input type="text" id="chatbot-input-field" placeholder="Ask me anything..." />
+                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // OpenAI API Key
+        const OPENAI_API_KEY = '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'; // Replace with your OpenAI API key
+
+        // Chatbot elements
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotBox = document.getElementById('chatbot-box');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInputField = document.getElementById('chatbot-input-field');
+        const chatbotSendButton = document.getElementById('chatbot-send');
+
+        // Toggle chatbot visibility
+        chatbotToggle.addEventListener('click', () => {
+            chatbotBox.style.display = chatbotBox.style.display === 'none' ? 'flex' : 'none';
+        });
+
+        // Send message to OpenAI API
+        chatbotSendButton.addEventListener('click', async () => {
+            const userMessage = chatbotInputField.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, 'user');
+                chatbotInputField.value = '';
+
+                // Call OpenAI API
+                const botResponse = await getBotResponse(userMessage);
+                addMessage(botResponse, 'bot');
+            }
+        });
+
+        // Allow pressing "Enter" to send messages
+        chatbotInputField.addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter') {
+                const userMessage = chatbotInputField.value.trim();
+                if (userMessage) {
+                    addMessage(userMessage, 'user');
+                    chatbotInputField.value = '';
+
+                    // Call OpenAI API
+                    const botResponse = await getBotResponse(userMessage);
+                    addMessage(botResponse, 'bot');
+                }
+            }
+        });
+
+        // Add message to the chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${sender}-message`);
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the latest message
+        }
+
+        // Get response from OpenAI API
+        async function getBotResponse(userMessage) {
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${OPENAI_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-3.5-turbo',
+                        messages: [
+                            { role: 'system', content: 'You are QQGPT, an AI assistant for QQGPT College. Provide helpful and concise answers about the college, courses, and services.' },
+                            { role: 'user', content: userMessage }
+                        ]
+                    })
+                });
+
+                const data = await response.json();
+                return data.choices[0].message.content;
+            } catch (error) {
+                console.error('Error fetching bot response:', error);
+                return 'Sorry, I am unable to respond at the moment.';
+            }
+        }
+    </script>
     <!-- Quick Links Section -->
     <section id="quick-links" class="py-5 bg-dark">
         <div class="container">
