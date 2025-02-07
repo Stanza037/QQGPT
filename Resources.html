@@ -1,379 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="QQGPT.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QQGPT - Learning Resources</title>
+    <title>Student Resources</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0097a7;
-            --secondary-color: #00bcd4;
-            --card-bg: #ffffff;
-            --text-color: #333;
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --dark-bg: #0b0f19;
+            --card-bg: #1c1f2e;
         }
-
         body {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            color: var(--text-color);
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
         }
-
-        .resource-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 188, 212, 0.3);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
-        }
-
-        .file-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .file-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            background: rgba(0, 188, 212, 0.05);
-        }
-
-        .file-item:hover {
-            background: rgba(0, 188, 212, 0.1);
-        }
-
-        .download-btn {
+        .navbar {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            padding: 6px 15px;
-            border-radius: 6px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            padding: 1rem;
         }
-
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
-        }
-
-        .file-icon {
-            color: var(--primary-color);
-            margin-right: 10px;
-        }
-
         .section-title {
             color: var(--primary-color);
-            font-weight: bold;
+            text-align: center;
             margin-bottom: 2rem;
+            font-weight: 700;
         }
-
-        .search-bar {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 25px;
-            padding: 0.5rem 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-bar input {
-            border: none;
-            background: transparent;
-            outline: none;
-        }
-
-        .navbar {
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand span {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-
-        .footer .social-links a {
-            color: white;
+        .resource-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
             transition: all 0.3s ease;
         }
-
-        .footer .social-links a:hover {
-            transform: translateY(-5px);
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(106, 17, 203, 0.4);
+        }
+        .btn-download {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="QQGPT.png" alt="QQGPT Logo" style="height: 50px;">
-                    <span class="ms-3">QQGPT SERVICES</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="index.html#courses">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="index.html#quick-links">Services</a></li>
-                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="resources.html">Resources</a></li>
-                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Resources Section -->
-    <section class="py-5" style="margin-top: 100px;">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <h2 class="section-title text-center animate__animated animate__fadeIn">Learning Resources</h2>
-            
-            <!-- Search Bar -->
-            <div class="row mb-4 animate__animated animate__fadeInUp">
-                <div class="col-md-8 mx-auto">
-                    <div class="input-group search-bar">
-                        <span class="input-group-text bg-transparent border-0">
-                            <i class="fas fa-search text-muted"></i>
-                        </span>
-                        <input type="text" class="form-control bg-transparent border-0" 
-                               placeholder="Search resources..." id="searchInput">
-                    </div>
+            <a class="navbar-brand text-white" href="#">Student Resources</a>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <h2 class="section-title animate__animated animate__fadeInDown">Download Student Resources</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                <div class="resource-card">
+                    <h5>Computer Science</h5>
+                    <p>Access PDF materials for CS students.</p>
+                    <a href="cs-resource.pdf" class="btn-download">Download</a>
                 </div>
             </div>
-
-            <!-- Resources Grid -->
-            <div class="row g-4" id="resourcesContainer">
-                <!-- Mathematics Resources -->
-                <div class="col-md-6 animate__animated animate__fadeInUp">
-                    <div class="resource-card">
-                        <h4 class="mb-4"><i class="fas fa-calculator me-2"></i>Mathematics Resources</h4>
-                        <ul class="file-list">
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>Trigonometry.pdf</span>
-                                </div>
-                                <a href="Resources/Trigonometry.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>Derivatives.pdf</span>
-                                </div>
-                                <a href="Resources/Derivatives.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>Integration.pdf</span>
-                                </div>
-                                <a href="Resources/Integration.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>Differential Equations.pdf</span>
-                                </div>
-                                <a href="Resources/Differential_Equations.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                <div class="resource-card">
+                    <h5>Civil Engineering</h5>
+                    <p>Access PDF materials for Civil Engineering.</p>
+                    <a href="civil_resource.pdf" class="btn-download">Download</a>
                 </div>
-
-                <!-- Physics and Chemistry Resources -->
-                <div class="col-md-6 animate__animated animate__fadeInUp">
-                    <div class="resource-card">
-                        <h4 class="mb-4"><i class="fas fa-atom me-2"></i>Physics & Chemistry Resources</h4>
-                        <ul class="file-list">
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>UNITS & DIMENSIONS</span>
-                                </div>
-                                <a href="Resources/Units and dimensions.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>ELEMENTS OF VECTORS</span>
-                                </div>
-                                <a href="Resources/ELEMENTS OF VECTORS.pdf.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>EXPANSION OF GASES</span>
-                                </div>
-                                <a href="Resources/EXPANSION OF GASES.pdf.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>EXPANSION OF LIQUIDS</span>
-                                </div>
-                                <a href="Resources/EXPANSION OF LIQUIDS.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>EXPANSION OF SOLIDS</span>
-                                </div>
-                                <a href="Resources/EXPANSION OF SOLIDS.pdf.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>NEWTONS LAW AND FRICTION</span>
-                                </div>
-                                <a href="Resources/NEWTON'S LAWS AND FRICTION.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>HEAT AND THERMODYNAMICS</span>
-                                </div>
-                                <a href="Resources/Heat & Thermodynamics.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>KINEMATICS</span>
-                                </div>
-                                <a href="Resources/KINEMATICS.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>FRICTION</span>
-                                </div>
-                                <a href="Resources/FRICTION 2.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>PLANETARY MOTION</span>
-                                </div>
-                                <a href="Resources/SOUND.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>THERMODYNAMICS</span>
-                                </div>
-                                <a href="Resources/THERMODYNAMICS.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-info">
-                                    <i class="fas fa-file-pdf file-icon"></i>
-                                    <span>WORK POWER AND ENERGY</span>
-                                </div>
-                                <a href="Resources/WORK POWER ENERGY.pdf" class="download-btn">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                <div class="resource-card">
+                    <h5>Mechanical Engineering</h5>
+                    <p>Access PDF materials for Mechanical Engineering.</p>
+                    <a href="Mech_resource.pdf" class="btn-download">Download</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                <div class="resource-card">
+                    <h5>Electrical & Electronics</h5>
+                    <p>Access PDF materials for EEE students.</p>
+                    <a href="Electro_resource.pdf" class="btn-download">Download</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer animate__animated animate__fadeInUp">
-        <div class="container text-center">
-            <div class="social-links mb-4">
-                <a href="https://www.facebook.com/QuliQutubShahPolytechnic/" class="hvr-grow mx-3"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="https://x.com/qqgpt" class="hvr-grow mx-3"><i class="fab fa-twitter fa-2x"></i></a>
-                <a href="https://www.instagram.com/qqgpt_official/" class="hvr-grow mx-3"><i class="fab fa-instagram fa-2x"></i></a>
-            </div>
-            <p>QQGPT HYDERABAD</p>
-        </div>
+    <footer class="text-center py-3" style="background: var(--card-bg);">
+        <p>&copy; STUDENT RESOURCES</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const fileItems = document.querySelectorAll('.file-item');
-            
-            fileItems.forEach(item => {
-                const fileName = item.textContent.toLowerCase();
-                item.style.display = fileName.includes(searchTerm) ? 'flex' : 'none';
-            });
-        });
-
-        // Animation trigger
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.visibility = 'visible';
-                    entry.target.classList.add('animate__fadeInUp');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animate__animated').forEach(element => {
-            element.style.visibility = 'hidden';
-            observer.observe(element);
-        });
-    </script>
 </body>
 </html>
