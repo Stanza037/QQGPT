@@ -4,63 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Pattern - SBTET</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom Styles -->
     <style>
         :root {
-            --primary: #00c3ff;
-            --secondary: #2a2b3a;
-            --background: #1e1e2f;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #00bcd4;
+            --secondary-color: #0097a7;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background);
-            color: #e0e0e0;
-            line-height: 1.6;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .header {
+        .section-title {
+            color: var(--primary-color);
             text-align: center;
-            margin-bottom: 3rem;
-            animation: slideDown 1s ease;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 1rem;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #00c3ff, #0077ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
 
         .card {
-            background: var(--secondary);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transform: translateY(0);
+            background-color: var(--card-bg);
+            border: 1px solid rgba(0, 188, 212, 0.3);
             transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+            border-color: var(--primary-color);
         }
 
         .card-header {
@@ -72,7 +75,7 @@
         .avatar {
             width: 50px;
             height: 50px;
-            background: var(--primary);
+            background: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -80,8 +83,13 @@
             margin-right: 1rem;
         }
 
+        .avatar i {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
         h2 {
-            color: var(--primary);
+            color: var(--primary-color);
             font-size: 1.8rem;
         }
 
@@ -105,23 +113,12 @@
             content: '▹';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--primary-color);
         }
 
         .highlight {
-            color: var(--primary);
+            color: var(--primary-color);
             font-weight: 600;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @keyframes fadeInUp {
@@ -135,72 +132,123 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .card {
-                padding: 1.5rem;
-            }
+        .animate__animated {
+            animation-duration: 1s;
+        }
+
+        .animate__fadeInUp {
+            animation-name: fadeInUp;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Diploma Course Examinations</h1>
-            <p>State Board of Technical Education & Training</p>
-        </div>
-
-        <div class="card" style="animation-delay: 0.2s">
-            <div class="card-header">
-                <div class="avatar">
-                    <i class="fas fa-calendar-check fa-lg"></i>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center animate__animated animate__fadeInLeft" href="#">
+                    <img src="QQGPT.png" alt="QQGPT Logo" style="height: 50px;">
+                    <span class="ms-3" style="color: #0097a7;">QULI QUTUB SHAH GOVT POLYTECHNIC COLLEGE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="index.html" style="color: #ffffff;">Home</a></li>
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="index.html#courses" style="color: #ffffff;">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="gallery.html" style="color: #ffffff;">Infrastructure</a></li>
+                        <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="index.html#contact" style="color: #ffffff;">Contact Us</a></li>
+                    </ul>
                 </div>
-                <h2>Attendance Policy</h2>
             </div>
-            <p>The academic year runs from June to March. Classes are held Monday to Saturday, with 8 periods daily.</p>
-            <ul>
-                <li><span class="highlight">75%</span> attendance is mandatory for end exams</li>
-                <li><span class="highlight">65%-75%</span> with medical condonation</li>
-                <li><span class="highlight">Below 65%</span> results in detention</li>
-            </ul>
-        </div>
+        </nav>
+    </header>
 
-        <div class="card" style="animation-delay: 0.4s">
-            <div class="card-header">
-                <div class="avatar">
-                    <i class="fas fa-clipboard-list fa-lg"></i>
+    <!-- Main Content -->
+    <section class="py-5 mt-5">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Exam Pattern</h2>
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <div class="card-header">
+                    <div class="avatar">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h2>Attendance Policy</h2>
                 </div>
-                <h2>Examination Scheme</h2>
+                <p>The academic year runs from June to March. Classes are held Monday to Saturday, with 8 periods daily.</p>
+                <ul>
+                    <li><span class="highlight">75%</span> attendance is mandatory for end exams</li>
+                    <li><span class="highlight">65%-75%</span> with medical condonation</li>
+                    <li><span class="highlight">Below 65%</span> results in detention</li>
+                </ul>
             </div>
-            <p>Comprehensive evaluation through theory and practical assessments:</p>
-            <ul>
-                <li>Theory: <span class="highlight">40%</span> external + <span class="highlight">60%</span> internal</li>
-                <li>Practical: <span class="highlight">40%</span> external + <span class="highlight">60%</span> internal</li>
-            </ul>
-        </div>
 
-        <div class="card" style="animation-delay: 0.6s">
-            <div class="card-header">
-                <div class="avatar">
-                    <i class="fas fa-star-half-alt fa-lg"></i>
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                <div class="card-header">
+                    <div class="avatar">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h2>Examination Scheme</h2>
                 </div>
-                <h2>Credit System</h2>
+                <p>Comprehensive evaluation through theory and practical assessments:</p>
+                <ul>
+                    <li>Theory: <span class="highlight">40%</span> external + <span class="highlight">60%</span> internal</li>
+                    <li>Practical: <span class="highlight">40%</span> external + <span class="highlight">60%</span> internal</li>
+                </ul>
             </div>
-            <p>Accumulate credits through various course components:</p>
-            <ul>
-                <li>Theory: <span class="highlight">3 credits</span> per subject</li>
-                <li>Laboratory: <span class="highlight">1.5 credits</span> per session</li>
-                <li>Skill Development: <span class="highlight">2.5 credits</span> per module</li>
-            </ul>
-            <p>Total <span class="highlight">130 credits</span> required for diploma completion</p>
+
+            <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                <div class="card-header">
+                    <div class="avatar">
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h2>Credit System</h2>
+                </div>
+                <p>Accumulate credits through various course components:</p>
+                <ul>
+                    <li>Theory: <span class="highlight">3 credits</span> per subject</li>
+                    <li>Laboratory: <span class="highlight">1.5 credits</span> per session</li>
+                    <li>Skill Development: <span class="highlight">2.5 credits</span> per module</li>
+                </ul>
+                <p>Total <span class="highlight">130 credits</span> required for diploma completion</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="animate__animated animate__fadeInUp">
+        <div class="container text-center">
+            <div class="social-links mb-4">
+                <a href="https://www.facebook.com/QuliQutubShahPolytechnic/" class="text-white hvr-grow mx-3"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://x.com/qqgpt" class="text-white hvr-grow mx-3"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.instagram.com/qqgpt_official/" class="text-white hvr-grow mx-3"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+            <p>QQGPT HYDERABAD</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate__animated');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.dataset.animate;
+                        entry.target.style.visibility = 'visible';
+                        entry.target.classList.add(animation);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                element.style.visibility = 'hidden';
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
